@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.time.LocalDateTime;
 
-final class Report {
+public final class Report {
 	private static Queue<String> reports = new LinkedList<>();
 
 	public static void add() {

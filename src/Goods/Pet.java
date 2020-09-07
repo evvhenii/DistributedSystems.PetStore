@@ -1,5 +1,7 @@
 package Goods;
 
+import Enums.*;
+
 public final class Pet{
 	private final Breed breed;
 	private final String name;

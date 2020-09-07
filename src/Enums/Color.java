@@ -1,4 +1,4 @@
-package Goods;
+package Enums;
 
 public enum Color{
 	BLUE,

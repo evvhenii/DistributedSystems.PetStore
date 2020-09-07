@@ -2,8 +2,9 @@ package Working;
 
 import Goods.Pet;
 import Goods.Accessory;
+import Workers.Cashier;
 
-final class CashRegister {
+public final class CashRegister {
 	private static int amountOfCash;
 	private static Cashier cashier;
 

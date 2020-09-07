@@ -1,6 +1,11 @@
-package Working;
+package Workers;
 
-final class Cashier extends Worker{
+
+import Working.CashRegister;
+import Working.Report;
+//import Working.Worker;
+
+public final class Cashier extends Worker{
 
 	public Cashier(String name, int age){
 		super(name, age);
@@ -29,3 +34,4 @@ final class Cashier extends Worker{
 		CashRegister.giveMoney();
 	}
 }
+

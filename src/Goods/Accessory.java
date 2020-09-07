@@ -1,5 +1,7 @@
 package Goods;
 
+import Enums.*;
+
 public final class Accessory{
 	private final Type type;
 	private final Color color;
