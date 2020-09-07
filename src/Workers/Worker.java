@@ -1,6 +1,5 @@
 package Workers;
 
-
 class Worker{
 	private final String name;
 	private final int age;

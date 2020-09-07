@@ -1,9 +1,7 @@
 package Workers;
 
-
 import Working.CashRegister;
 import Working.Report;
-//import Working.Worker;
 
 public final class Cashier extends Worker{
 
