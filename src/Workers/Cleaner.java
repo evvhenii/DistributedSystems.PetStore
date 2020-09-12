@@ -1,6 +1,7 @@
 package Workers;
 
 public final class Cleaner extends Worker{
+
 	public Cleaner(String name, int age) {
 		super(name, age);
 	}

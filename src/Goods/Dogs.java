@@ -2,14 +2,14 @@ package Goods;
 
 import Enums.*;
 
-public final class Pet{
+public final class Dogs{
 	private final Breed breed;
 	private final String name;
 	private final Color color;
 	private final Size size;
 	private final int price;
 
-	public Pet(Breed breed, String name, Color color, Size size, int price){
+	public Dogs(Breed breed, String name, Color color, Size size, int price){
 		this.breed = breed;
 		this.name = name;
 		this.color = color;

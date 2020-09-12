@@ -1,7 +1,7 @@
 package Workers;
 
-import Working.CashRegister;
-import Working.Report;
+import Registration.Registry;
+import Working.*;
 
 public final class Cashier extends Worker{
 
@@ -13,23 +13,24 @@ public final class Cashier extends Worker{
 		System.out.println("I'm speaking with clients");
 	}
 
-	public static void takeMoney( int money) {
+	public void takeMoney(CashRegister cashRegister,  int money) {
 		System.out.println("I'm taking clients' money: " + money);
-		CashRegister.setAmountOfCash( CashRegister.getAmountOfCash() + money);
-		System.out.println("Cash register : " + CashRegister.getAmountOfCash() + " Hryvnia");
+		cashRegister.setAmountOfCash( cashRegister.getAmountOfCash() + money);
+		System.out.println("Cash register : " + cashRegister.getAmountOfCash() + " Hryvnia");
 	}
 
-	public void OpenRegister(){
-		CashRegister.setCashier(this);
+	public void OpenRegister(CashRegister cashRegister){
+		cashRegister.setCashier(this);
 		System.out.println("Hello! My name is " + super.getName() + 
 				" .I'm a cashier. I'm " + super.getAge() + ".");
 		System.out.println("I started to work. So I opened my cash register");
 	}
 
-	public void CloseOutRegister(){
+	public void CloseOutRegister(AccountingDogs accDogs, AccountingForDogs accForDogs,CashRegister cashRegister, Registry registry, Report report){
 		System.out.println("Cash register was closed out");
-		Report.add();
-		CashRegister.giveMoney();
+		report.add(accDogs, accForDogs, registry, cashRegister);
+		cashRegister.giveMoney();
+		registry.nextDay();
 	}
 }
 

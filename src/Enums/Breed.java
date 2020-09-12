@@ -1,9 +1,10 @@
 package Enums;
 
 public enum Breed {
-	CAT,
-	DOG,
-	FROG,
-	PARROT,
-	FISH
+	LABRADOR,
+	RETRIEVER,
+	BULLDOG,
+	POODLE,
+	TERRIER,
+	HUSKIE
 }

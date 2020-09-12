@@ -1,33 +1,37 @@
 package Working;
 
+import Registration.Registry;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.time.LocalDateTime;
 
 public final class Report {
-	private static Queue<String> reports = new LinkedList<>();
+	private LinkedList<String> reports = new LinkedList<>();
 
-	public static void add() {
+	public void add(AccountingDogs accDogs, AccountingForDogs accForDogs, Registry reg, CashRegister cashReg) {
 		if(reports.size() >= 7) {
 			reports.remove();
 		}
-		reports.add("Звіт за " + LocalDateTime.now() + "\n" + "Залишок тварин:\n" +
-				"Коти: " + Accounting.getNumberOfCats() + "\n" +
-				"Собаки: " + Accounting.getNumberOfDogs() + "\n" +
-				"Папуги: " + Accounting.getNumberOfParrots() + "\n" +
-				"Риби: " + Accounting.getNumberOfFishes() + "\n" +
-				"Жаби: " + Accounting.getNumberOfFrogs() + "\n" + "Залишок аксесуарів:\n" +
-				"Повідки: " + Accounting.getNumberOfLeashes() + "\n" +
-				"Їжа: " + Accounting.getNumberOfFeed() + "\n" +
-				"Клітки: " + Accounting.getNumberOfCages() + "\n" +
-				"Отримані гроші за день:" + CashRegister.getAmountOfCash() + "\n" +	
-				"Касир:" + CashRegister.getCashier().getName() + "\n\n");
+		reports.add("Звіт за\t" + LocalDateTime.now() + "\n" + "Залишок тварин:\n" +
+				"Бульдоги:  " + accDogs.getNumberOfBulldogs() + "\n" +
+				"Хаскі:     " + accDogs.getNumberOfHuskies() + "\n" +
+				"Лабрадори: " + accDogs.getNumberOfLabradors() + "\n" +
+				"Пуделі:    " + accDogs.getNumberOfPoodles() + "\n" +
+				"Ретривери: " + accDogs.getNumberOfRetrievers() + "\n" +
+				"Терєри:    " + accDogs.getNumberOfTerriers() + "\n" + "Залишок аксесуарів:\n" +
+				"Повідки:   " + accForDogs.getNumberOfLeashes() + "\n" +
+				"Їжа:       " + accForDogs.getNumberOfFeed() + "\n" +
+				"Будиночки: " + accForDogs.getNumberOfCages() + "\n" +
+				"КЛІЄНТИ:" + "\n" + reg.getCurrentDay() + "\n" +
+				"Отримані гроші за день:" + cashReg.getAmountOfCash() + "\n" +	
+				"Касир:" + cashReg.getCashier().getName() + "\n\n");
 	}
 
-	public static void showReport() {
-		String rep;
-		while((rep = reports.poll()) != null) {
-			System.out.println(rep);
-		}
+	@Override
+	public String toString() {
+		String report = "";
+	    for(String item:reports) {
+	        report += item.toString() + "\n";
+	    }
+	    return report;
 	}
 }
