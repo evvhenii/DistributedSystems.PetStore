@@ -1,6 +1,6 @@
-package Enums;
+package enums;
 
-public enum Service {
+public enum serviceType {
 	CLIPPING,
 	TEETH_BRUSHING,
 	EAR_CLEAN,

@@ -1,6 +1,6 @@
-package Working;
+package work;
 
-import Goods.*;
+import goods.*;
 
 public final class AccountingForDogs {
 	private int numberOfLeashes;
@@ -25,7 +25,7 @@ public final class AccountingForDogs {
 		return numberOfCages;
 	}
 
-	public ForDogs buyAccessory(ForDogs accessory) {
+	public ForDog buy(ForDog accessory) {
 		switch(accessory.getType()) {
 		case LEASH:
 			this.numberOfLeashes++;
@@ -38,14 +38,15 @@ public final class AccountingForDogs {
 			break;
 		}
 
-		System.out.println("Pet Store got a " + accessory.getColor() + " "
+		String buyReport = "Pet Store got a " + accessory.getColor() + " "
 				+ accessory.getSize() + " " + accessory.getType() + ". It costs " 
-				+ accessory.getPrice() + ".");
+				+ accessory.getPrice() + ".";
+		System.out.println(buyReport);
 
 		return accessory;
 	}
 
-	public void sell(ForDogs accessory, CashRegister cashReg) {
+	public void sell(ForDog accessory, CashRegister cashReg) {
 		switch(accessory.getType()) {
 		case LEASH:
 			this.numberOfLeashes--;

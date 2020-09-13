@@ -1,26 +1,20 @@
-package Registration;
+package logManagement;
 
-import Enums.Service;
+import goods.Service;
 
 public class LogEntry {
 	private final String name;
 	private final String mobileNumber;
-	private final Service service; 
-	private final int price; 
+	private final Service service;
 
-	public LogEntry(String name, String mobileNumber, Service service, int price) {
+	public LogEntry(String name, String mobileNumber, Service service) {
 		this.name = name;
 		this.mobileNumber = mobileNumber;
 		this.service = service;
-		this.price = price;
 	}
 
 	public Service getService() {
 		return service;
-	}
-
-	public int getPrice() {
-		return price;
 	}
 
 	public String getName() {
@@ -28,11 +22,11 @@ public class LogEntry {
 	}
 
 	public boolean isFree() {
-		return name == "Empty";
+		return name == "_____";
 	}
 
 	@Override
 	public String toString() {
-		return name == null ? "Empty" : name + "\t" + mobileNumber + "\t" + service + "\t" + price + " Hryvnia";
+		return name == null ? "Empty" : name + "\t" + mobileNumber + "\t" + service;
 	}
 }

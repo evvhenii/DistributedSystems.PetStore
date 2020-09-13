@@ -1,69 +1,63 @@
-package Registration;
+package logManagement;
+
+import goods.Service;
 
 public final class Registry {
+	private static final int NUMBER_OF_DAYS = 7;
+	private static final int NUMBER_OF_ENTRIES = 9;
 	private int currentDay = 0;
-	private final LogEntry[][] registry = new LogEntry[7][9]; 
-	private final String[] weekDays = {
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday",
-			"Saturday",
-			"Sunday"
-	};
 
-	public LogEntry getEntry(int day, int time) {
-		return registry[day][time];
-	}
+	private final LogEntry[][] registry = new LogEntry[NUMBER_OF_DAYS][NUMBER_OF_ENTRIES]; 
+	private final String[] weekDays = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
 	public void add(int day, int time, LogEntry logEntry) {
 		if(!this.isVacant(day, time)) {
 			return;
 		}
+
 		registry[day][time] = logEntry;
-		System.out.println(logEntry.getName() + " made an apointment on " 
-				+ weekDays[day] + " at " + (time + 9) + ":00.");
+
+		String addInfo = logEntry.getName() + " made an apointment on " + 
+				weekDays[day] + " at " + (time + NUMBER_OF_ENTRIES) + ":00.";
+		System.out.println(addInfo);
 	}
 
 	public String getCurrentDay() {
-		return "CURRENT DAY: " + weekDays[currentDay] + "\n" +
-				"09:00. " + registry[currentDay][0].toString() + "\n" +
-				"10:00. " + registry[currentDay][1].toString() + "\n" +
-				"11:00. " + registry[currentDay][2].toString() + "\n" +
-				"12:00. " + registry[currentDay][3].toString() + "\n" +
-				"13:00. " + registry[currentDay][4].toString() + "\n" +
-				"14:00. " + registry[currentDay][5].toString() + "\n" +
-				"15:00. " + registry[currentDay][6].toString() + "\n" +
-				"16:00. " + registry[currentDay][7].toString() + "\n" +
-				"17:00. " + registry[currentDay][8].toString();		
+		String dayReport = "CURRENT DAY: " + weekDays[currentDay] + "\n";
+		String time;
+
+		for(int i = 0; i < NUMBER_OF_ENTRIES; i++) {
+			time = i + NUMBER_OF_ENTRIES + ":00. ";
+			dayReport += time + registry[currentDay][i] + "\n";
+		}
+
+		return dayReport;		
 	}
 
 	public void clearDay(int day) {
-		for(int i = 0; i < 9; i++) {
-			registry[day][i] = new LogEntry("Empty", "Empty    ", null, 0);
+		for(int i = 0; i < NUMBER_OF_ENTRIES; i++) {
+			registry[day][i] = new LogEntry("_____", "_________", new Service(null, 0));
 		}
 	}
 
 	public void clearRegistry() {
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < NUMBER_OF_DAYS; i++) {
 			clearDay(i);
 		}
 	}
 
 	public void nextDay() {
 		clearDay(currentDay);
-		currentDay = (currentDay == 6) ? 0 : ++currentDay;
-
+		currentDay = (currentDay == NUMBER_OF_DAYS - 1) ? 0 : ++currentDay;
 	}
 
 	public boolean isVacant(int day, int time) {
-		if(day < 0 || day > 7) {
+		if(day < 0 || day > NUMBER_OF_DAYS) {
 			System.out.println("Day is uncorrect");
 			return false;
 		}
 
-		if(time < 0 || time > 8) {
+		if(time < 0 || time > NUMBER_OF_ENTRIES) {
 			System.out.println("Time is uncorrect");
 			return false;
 		}
@@ -79,12 +73,17 @@ public final class Registry {
 	@Override
 	public String toString() {
 		String entries = "";
-		for(int i = 0; i < 7; i++) {
-			entries += weekDays[i] + ":\n\n";
-			for(int j = 0; j < 9; j++) {
-				entries += i + 9 + ". " + registry[i][j].toString() + "\n";
+		String time;
+
+		for(int i = 0; i < NUMBER_OF_DAYS; i++) {
+			entries += "\n" + weekDays[i] + ":\n\n";
+
+			for(int j = 0; j < NUMBER_OF_ENTRIES; j++) {
+				time = j + NUMBER_OF_ENTRIES + ":00. ";
+				entries += time + registry[i][j] + "\n";
 			}
 		}
+
 		return entries;
 	}
 

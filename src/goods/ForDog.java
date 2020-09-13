@@ -1,14 +1,14 @@
-package Goods;
+package goods;
 
-import Enums.*;
+import enums.*;
 
-public final class ForDogs{
+public final class ForDog{
 	private final Type type;
 	private final Color color;
 	private final Size size;
 	private final int price;
 
-	public ForDogs(Type type, Color color, Size size, int price){
+	public ForDog(Type type, Color color, Size size, int price){
 		this.type = type;
 		this.color = color;
 		this.size = size;

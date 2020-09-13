@@ -1,19 +1,23 @@
-package Workers;
+package workers;
 
-import Registration.*;
+import logManagement.*;
 
 public final class Groomer extends Worker{
 
 	public Groomer(String name, int age){
 		super(name, age);
-		System.out.println("Hi! My name is " + name + ". I'm " + age 
-				+ ". I can cut your dog");
+		final String report = "Hi! My name is " + name + ". I'm " + age 
+				+ ". I can cut your dog";
+		System.out.println(report);
 	}
 
 	public void service(LogEntry logEntry) {
-		System.out.println("I'm making the order: " + logEntry.getService());
-		System.out.println("-You need to pay for it at the register: " 
-				+ logEntry.getPrice() + " Hryvnia");
+		final String workingReport = "I'm making the order: " + logEntry.getService();
+		final String askingToPay = "-You need to pay for it at the register: " 
+				+ logEntry.getService().getPrice() + " Hryvnia";
+
+		System.out.println(workingReport);
+		System.out.println(askingToPay);
 	}	
 }
 

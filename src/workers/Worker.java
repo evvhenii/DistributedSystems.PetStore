@@ -1,4 +1,4 @@
-package Workers;
+package workers;
 
 class Worker{
 	private final String name;

@@ -1,15 +1,15 @@
-package Goods;
+package goods;
 
-import Enums.*;
+import enums.*;
 
-public final class Dogs{
+public final class Dog{
 	private final Breed breed;
 	private final String name;
 	private final Color color;
 	private final Size size;
 	private final int price;
 
-	public Dogs(Breed breed, String name, Color color, Size size, int price){
+	public Dog(Breed breed, String name, Color color, Size size, int price){
 		this.breed = breed;
 		this.name = name;
 		this.color = color;

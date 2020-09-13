@@ -1,7 +1,7 @@
-package Working;
+package work;
 
-import Goods.*;
-import Workers.Cashier;
+import goods.*;
+import workers.Cashier;
 
 public final class CashRegister {
 	private int amountOfCash;
@@ -28,12 +28,12 @@ public final class CashRegister {
 		this.cashier = cashier;
 	}
 
-	public void sell(Dogs pet) {
+	public void sell(Dog pet) {
 		cashier.takeMoney(this, pet.getPrice());
 		System.out.println(pet.getBreed() + " " + pet.getName() + " was sold\n");
 	}
 
-	public void sell(ForDogs accessory) {
+	public void sell(ForDog accessory) {
 		cashier.takeMoney(this, accessory.getPrice());
 		System.out.println(accessory.getType() + " was sold\n");
 	}

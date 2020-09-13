@@ -1,4 +1,4 @@
-package Workers;
+package workers;
 
 public final class Cleaner extends Worker{
 
@@ -7,7 +7,8 @@ public final class Cleaner extends Worker{
 	}
 
 	public void work() {
-		System.out.println("Hello! My name is " + super.getName() + 
-				" .I'm " + super.getAge() + " .I'm cleaning");
+	    final String report = "Hello! My name is " + super.getName() + 
+				" .I'm " + super.getAge() + " .I'm cleaning";
+		System.out.println(report);
 	}
 }

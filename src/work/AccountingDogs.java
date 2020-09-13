@@ -1,6 +1,6 @@
-package Working;
+package work;
 
-import Goods.*;
+import goods.*;
 
 public final class AccountingDogs {
 	private int numberOfBulldogs;
@@ -43,8 +43,8 @@ public final class AccountingDogs {
 		return numberOfTerriers;
 	}
 
-	public Dogs buyPet(Dogs pet) {
-		switch(pet.getBreed()) {
+	public Dog buy(Dog dog) {
+		switch(dog.getBreed()) {
 		case BULLDOG:
 			this.numberOfBulldogs++;
 			break;
@@ -65,15 +65,16 @@ public final class AccountingDogs {
 			break;
 		}
 
-		System.out.println("Pet Store got a " + pet.getColor() + " " 
-				+ pet.getSize() + " " + pet.getBreed() + " " 
-				+ pet.getName() + ". It costs " + pet.getPrice() + ".");
+		String buyReport = "Pet Store got a " + dog.getColor() + " " 
+				+ dog.getSize() + " " + dog.getBreed() + " " 
+				+ dog.getName() + ". It costs " + dog.getPrice() + ".";
+		System.out.println(buyReport);
 
-		return pet;
+		return dog;
 	}
 
-	public void sell(Dogs pet, CashRegister cashReg) {
-		switch(pet.getBreed()) {
+	public void sell(Dog dog, CashRegister cashReg) {
+		switch(dog.getBreed()) {
 		case BULLDOG:
 			this.numberOfBulldogs--;
 			break;
@@ -94,6 +95,6 @@ public final class AccountingDogs {
 			break;
 		}
 
-		cashReg.sell(pet);	
+		cashReg.sell(dog);	
 	};
 }
