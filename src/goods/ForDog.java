@@ -30,4 +30,5 @@ public final class ForDog{
 	public int getPrice() {
 		return price;
 	}
+
 }

@@ -1,8 +1,9 @@
-package logManagement;
+package services;
 
 import goods.Service;
+import work.LogEntry;
 
-public final class Registry {
+public final class RegistryService {
 	private static final int NUMBER_OF_DAYS = 7;
 	private static final int NUMBER_OF_ENTRIES = 9;
 	private int currentDay = 0;
@@ -22,8 +23,8 @@ public final class Registry {
 		System.out.println(addInfo);
 	}
 
-	public String getCurrentDay() {
-		String dayReport = "CURRENT DAY: " + weekDays[currentDay] + "\n";
+	public String getCurrentDayEntries() {
+		String dayReport = "CUSTOMERS' ENTRIES : CURRENT DAY: " + weekDays[currentDay] + "\n";
 		String time;
 
 		for(int i = 0; i < NUMBER_OF_ENTRIES; i++) {

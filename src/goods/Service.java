@@ -10,6 +10,10 @@ public class Service {
 		this.service = service;
 		this.price = price;
 	}
+	
+	public serviceType getServiceType(){
+		return service;
+	}
 
 	public int getPrice() {
 		return price;

@@ -2,7 +2,7 @@ package work;
 
 import goods.*;
 
-public final class AccountingDogs {
+public final class DogStorage {
 	private int numberOfBulldogs;
 	private int numberOfHuskies;
 	private int numberOfLabradors;
@@ -10,7 +10,7 @@ public final class AccountingDogs {
 	private int numberOfRetrievers;
 	private int numberOfTerriers;
 
-	public AccountingDogs() {
+	public DogStorage() {
 		numberOfBulldogs = 0;
 		numberOfHuskies = 0;
 		numberOfLabradors = 0;
@@ -43,37 +43,7 @@ public final class AccountingDogs {
 		return numberOfTerriers;
 	}
 
-	public Dog buy(Dog dog) {
-		switch(dog.getBreed()) {
-		case BULLDOG:
-			this.numberOfBulldogs++;
-			break;
-		case HUSKIE:
-			this.numberOfHuskies++;
-			break;
-		case LABRADOR:
-			this.numberOfLabradors++;
-			break;
-		case POODLE:
-			this.numberOfPoodles++;
-			break;
-		case RETRIEVER:
-			this.numberOfRetrievers++;
-			break;
-		case TERRIER:
-			this.numberOfTerriers++;
-			break;
-		}
-
-		String buyReport = "Pet Store got a " + dog.getColor() + " " 
-				+ dog.getSize() + " " + dog.getBreed() + " " 
-				+ dog.getName() + ". It costs " + dog.getPrice() + ".";
-		System.out.println(buyReport);
-
-		return dog;
-	}
-
-	public void sell(Dog dog, CashRegister cashReg) {
+	public void takeFromStorage(Dog dog) {
 		switch(dog.getBreed()) {
 		case BULLDOG:
 			this.numberOfBulldogs--;
@@ -95,6 +65,32 @@ public final class AccountingDogs {
 			break;
 		}
 
-		cashReg.sell(dog);	
+		System.out.println(dog.getName() + " was taken from the dog storage");
+	}
+
+	public void putInStorage(Dog dog) {
+		switch(dog.getBreed()) {
+		case BULLDOG:
+			this.numberOfBulldogs++;
+			break;
+		case HUSKIE:
+			this.numberOfHuskies++;
+			break;
+		case LABRADOR:
+			this.numberOfLabradors++;
+			break;
+		case POODLE:
+			this.numberOfPoodles++;
+			break;
+		case RETRIEVER:
+			this.numberOfRetrievers++;
+			break;
+		case TERRIER:
+			this.numberOfTerriers++;
+			break;
+		}
+
+		System.out.println(dog.getSize() + " " + dog.getBreed() + " " + 
+				dog.getName() + " was added to the dog storage");
 	};
 }

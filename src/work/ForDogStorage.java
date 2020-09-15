@@ -2,12 +2,12 @@ package work;
 
 import goods.*;
 
-public final class AccountingForDogs {
+public final class ForDogStorage {
 	private int numberOfLeashes;
 	private int numberOfFeed;
 	private int numberOfCages;
 
-	public AccountingForDogs() {
+	public ForDogStorage() {
 		numberOfLeashes = 0;
 		numberOfFeed = 0;
 		numberOfCages = 0;
@@ -25,28 +25,7 @@ public final class AccountingForDogs {
 		return numberOfCages;
 	}
 
-	public ForDog buy(ForDog accessory) {
-		switch(accessory.getType()) {
-		case LEASH:
-			this.numberOfLeashes++;
-			break;
-		case FEED:
-			this.numberOfFeed++;
-			break;
-		case HOUSE:
-			this.numberOfCages++;
-			break;
-		}
-
-		String buyReport = "Pet Store got a " + accessory.getColor() + " "
-				+ accessory.getSize() + " " + accessory.getType() + ". It costs " 
-				+ accessory.getPrice() + ".";
-		System.out.println(buyReport);
-
-		return accessory;
-	}
-
-	public void sell(ForDog accessory, CashRegister cashReg) {
+	public void takeFromStorage(ForDog accessory) {
 		switch(accessory.getType()) {
 		case LEASH:
 			this.numberOfLeashes--;
@@ -59,6 +38,23 @@ public final class AccountingForDogs {
 			break;
 		}
 
-		cashReg.sell(accessory);
+		System.out.println(accessory.getType() + " was taken from the forDog storage");
+	}
+
+	public void putInStorage(ForDog accessory) {
+		switch(accessory.getType()) {
+		case LEASH:
+			this.numberOfLeashes++;
+			break;
+		case FEED:
+			this.numberOfFeed++;
+			break;
+		case HOUSE:
+			this.numberOfCages++;
+			break;
+		}
+
+		System.out.println(accessory.getSize() + " " + accessory.getColor() + " " + 
+				accessory.getType() + " was added to the dog storage");
 	};
 }

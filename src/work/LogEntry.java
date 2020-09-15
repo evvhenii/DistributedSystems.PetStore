@@ -1,4 +1,4 @@
-package logManagement;
+package work;
 
 import goods.Service;
 
